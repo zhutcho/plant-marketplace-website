@@ -1,9 +1,11 @@
-function PlantList() {
+import Plant from './Plant'
+
+function PlantList({ plants }) {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  )
+    plants.map(plant => {
+      return <Plant plant={plant} />
+    })
+  );
 }
 
 export default PlantList;
