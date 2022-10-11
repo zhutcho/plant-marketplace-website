@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from "react";
+import NavBar from "./NavBar";
 import PlantList from "./PlantList";
 import { v4 as uuidv4 } from "uuid";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const LOCAL_STORAGE_KEY = "plantMarketplace.plants";
 
@@ -43,10 +46,11 @@ function App() {
 
   return (
     <>
+      <NavBar />
       <PlantList plants={plants} buyPlant={buyPlant} />
-      <input ref={plantNameRef} type="text" />
-      <button onClick={handleAddPlant}>Add Plant</button>
-      <button onClick={handleClearPlants}>Clear Plant List</button>
+      <TextField ref={plantNameRef} type="text" />
+      <Button onClick={handleAddPlant}>Add Plant</Button>
+      <Button onClick={handleClearPlants}>Clear Plant List</Button>
       <div>{plants.filter(plant => !plant.sold).length} plant/s for sale</div>
     </>
   );
